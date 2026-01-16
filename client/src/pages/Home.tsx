@@ -72,31 +72,31 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-medium text-sm mb-6 tracking-wide">
-                PROFESSIONAL ELECTRICAL SERVICES
+              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-semibold text-xs mb-8 tracking-[0.2em] uppercase">
+                Premier Electrical Services
               </span>
-              <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-                Reliable Electrical Work <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
+              <h1 className="text-6xl lg:text-8xl font-bold mb-8 leading-[1.1] tracking-tight">
+                Reliable Work <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/40">
                   You Can Trust
                 </span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl">
-                We light up your world with safe, efficient, and high-quality workmanship. 
-                Available for residential and commercial projects.
+              <p className="text-xl text-muted-foreground/80 mb-12 leading-relaxed max-w-2xl font-light">
+                JDK Electrical delivers safe, professional installations and maintenance. 
+                Experience premium workmanship that powers your world with confidence.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="tel:+27821234567">
-                  <Button size="lg" className="w-full sm:w-auto text-lg h-14 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25">
-                    <Zap className="mr-2 h-5 w-5 fill-current" />
+              <div className="flex flex-col sm:flex-row gap-6">
+                <a href="tel:+27821234567" className="group">
+                  <Button size="lg" className="cta-glow w-full sm:w-auto text-lg h-16 px-10 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300">
+                    <Zap className="mr-3 h-5 w-5 fill-current transition-transform group-hover:scale-110" />
                     Call Now
                   </Button>
                 </a>
                 <Link href="/contact">
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-14 rounded-xl border-white/20 hover:bg-white/10 text-white">
+                  <Button size="lg" variant="outline" className="w-full sm:w-auto text-lg h-16 px-10 rounded-full border-white/10 hover:bg-white/5 text-white backdrop-blur-sm transition-all duration-300">
                     Get a Free Quote
                   </Button>
                 </Link>

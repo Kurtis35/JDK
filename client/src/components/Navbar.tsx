@@ -15,44 +15,48 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/5">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group cursor-pointer">
-            <div className="bg-primary/10 p-2 rounded-lg border border-primary/20 group-hover:border-primary/50 transition-colors">
-              <Zap className="h-6 w-6 text-primary group-hover:text-primary animate-pulse" />
+          <Link href="/" className="flex items-center gap-4 group cursor-pointer">
+            <div className="bg-primary/5 p-2.5 rounded-xl border border-primary/10 group-hover:border-primary/40 transition-all duration-500 group-hover:rotate-[360deg]">
+              <Zap className="h-7 w-7 text-primary" />
             </div>
             <div className="flex flex-col">
-              <span className="font-display font-bold text-xl tracking-tight leading-none text-white">
-                JDK<span className="text-primary">Electrical</span>
+              <span className="font-display font-black text-2xl tracking-tighter leading-none text-white">
+                JDK<span className="text-primary group-hover:glow-text transition-all duration-500">ELECTRICAL</span>
               </span>
-              <span className="text-[10px] text-muted-foreground font-medium tracking-widest uppercase">
-                Reliable & Safe
+              <span className="text-[10px] text-primary font-bold tracking-[0.3em] uppercase opacity-70 group-hover:opacity-100 transition-opacity">
+                Established Excellence
               </span>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
+                  "text-[13px] font-bold uppercase tracking-widest transition-all duration-300 hover:text-primary relative group",
                   location === link.href ? "text-primary" : "text-muted-foreground"
                 )}
               >
                 {link.label}
+                <span className={cn(
+                  "absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full",
+                  location === link.href && "w-full"
+                )} />
               </Link>
             ))}
             
             <a 
               href="tel:+27821234567" 
-              className="flex items-center gap-2 bg-primary px-4 py-2 rounded-full text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-transform active:scale-95 shadow-lg shadow-primary/20"
+              className="cta-glow flex items-center gap-3 bg-white/5 border border-white/10 px-6 py-3 rounded-full text-white font-bold text-sm hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-500 group"
             >
-              <Phone className="h-4 w-4" />
+              <Phone className="h-4 w-4 transition-transform group-hover:scale-110" />
               <span>082 123 4567</span>
             </a>
           </div>

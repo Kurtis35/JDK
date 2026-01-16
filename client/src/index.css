@@ -5,31 +5,31 @@
 @tailwind utilities;
 
 :root {
-  /* Dark Electric Theme */
-  --background: 220 15% 10%;      /* #15191f - Deep charcoal/navy */
-  --foreground: 210 40% 98%;      /* Very light grey/white */
-
+  /* Dark Electric Theme - Refined */
+  --background: 220 18% 7%;        /* #0b0d10 - Deeper, more premium charcoal */
+  --foreground: 210 40% 98%;      
+  
   --primary: 197 100% 50%;        /* #00BFFF - Electric Blue */
-  --primary-foreground: 220 15% 10%; /* Dark text on blue */
-
-  --secondary: 215 25% 27%;       /* Slate grey */
+  --primary-foreground: 220 18% 7%;
+  
+  --secondary: 215 25% 15%;       /* Darker slate for depth */
   --secondary-foreground: 210 40% 98%;
-
-  --muted: 217 19% 20%;           /* Darker slate */
-  --muted-foreground: 215 20% 65%; /* Muted text */
-
-  --accent: 45 100% 60%;          /* #FFD700 - Electric Yellow/Gold Accent */
-  --accent-foreground: 220 15% 10%;
-
+  
+  --muted: 217 19% 12%;           
+  --muted-foreground: 215 15% 55%; /* More subtle muted text */
+  
+  --accent: 45 100% 55%;          /* Slightly warmer gold */
+  --accent-foreground: 220 18% 7%;
+  
   --destructive: 0 84% 60%;
   --destructive-foreground: 210 40% 98%;
-
-  --border: 217 19% 27%;
-  --input: 217 19% 27%;
+  
+  --border: 217 19% 18%;          /* Thinner, darker borders */
+  --input: 217 19% 18%;
   --ring: 197 100% 50%;
-
-  --radius: 0.5rem;
-
+  
+  --radius: 0.375rem;             /* Sharper, more modern corners */
+  
   --font-sans: 'Inter', sans-serif;
   --font-display: 'Outfit', sans-serif;
 }
@@ -38,30 +38,43 @@
   body {
     @apply bg-background text-foreground antialiased font-sans;
     background-image: 
-      radial-gradient(circle at 50% 0%, rgba(0, 191, 255, 0.08) 0%, transparent 40%),
-      radial-gradient(circle at 0% 100%, rgba(255, 215, 0, 0.03) 0%, transparent 30%);
+      radial-gradient(circle at 50% -10%, rgba(0, 191, 255, 0.05) 0%, transparent 60%),
+      radial-gradient(circle at 0% 100%, rgba(255, 215, 0, 0.02) 0%, transparent 40%);
     background-attachment: fixed;
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight text-white;
+    @apply font-display font-semibold tracking-tight text-white;
   }
 }
 
 @layer components {
   .glow-text {
-    text-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+    text-shadow: 0 0 25px rgba(0, 191, 255, 0.3);
   }
   
   .glow-box {
-    box-shadow: 0 0 15px -3px rgba(0, 191, 255, 0.15);
+    @apply transition-all duration-300;
+    box-shadow: 0 0 0px 0px rgba(0, 191, 255, 0);
   }
 
   .glow-box:hover {
-    box-shadow: 0 0 25px -5px rgba(0, 191, 255, 0.3);
+    box-shadow: 0 0 30px -10px rgba(0, 191, 255, 0.2);
+    @apply border-primary/20;
+  }
+
+  .cta-glow {
+    @apply relative overflow-hidden;
+    box-shadow: 0 0 20px -5px rgba(0, 191, 255, 0.3);
+  }
+
+  .cta-glow:hover {
+    box-shadow: 0 0 30px -5px rgba(0, 191, 255, 0.5);
+    @apply -translate-y-0.5;
   }
 
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-6 lg:px-12;
   }
 }
