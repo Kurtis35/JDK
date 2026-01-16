@@ -16,6 +16,13 @@ import {
   Home as HomeIcon, 
   Building2 
 } from "lucide-react";
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export default function Home() {
   const services = [
@@ -109,23 +116,13 @@ export default function Home() {
       {/* Services Grid */}
       <section className="py-24 bg-secondary/20">
         <div className="container-custom">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="text-center max-w-2xl mx-auto mb-16 px-4">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">Our Expertise</h2>
             <p className="text-muted-foreground text-lg">
               From small repairs to major installations, we deliver excellence in every connection.
             </p>
           </div>
           
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-
-// ... inside Home component, replacing the services grid:
-          {/* Services Desktop Grid / Mobile Slider */}
           <div className="hidden lg:grid grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
@@ -140,7 +137,7 @@ import {
             ))}
           </div>
 
-          <div className="lg:hidden">
+          <div className="lg:hidden px-4">
             <Carousel
               opts={{
                 align: "start",
@@ -150,14 +147,14 @@ import {
             >
               <CarouselContent className="-ml-4">
                 {services.map((service) => (
-                  <CarouselItem key={service.slug} className="pl-4 basis-[85%]">
+                  <CarouselItem key={service.slug} className="pl-4 basis-[85%] md:basis-[45%]">
                     <ServiceCard {...service} className="h-full" />
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <div className="flex justify-center gap-4 mt-12">
-                <CarouselPrevious className="relative inset-0 translate-y-0 h-12 w-12 bg-white/5 border-white/10 text-white hover:bg-primary hover:text-primary-foreground transition-all duration-300" />
-                <CarouselNext className="relative inset-0 translate-y-0 h-12 w-12 bg-white/5 border-white/10 text-white hover:bg-primary hover:text-primary-foreground transition-all duration-300" />
+              <div className="flex justify-center gap-6 mt-12">
+                <CarouselPrevious className="relative inset-0 translate-y-0 h-14 w-14 bg-white/5 border-white/10 text-white hover:bg-primary hover:text-primary-foreground transition-all duration-300" />
+                <CarouselNext className="relative inset-0 translate-y-0 h-14 w-14 bg-white/5 border-white/10 text-white hover:bg-primary hover:text-primary-foreground transition-all duration-300" />
               </div>
             </Carousel>
           </div>
@@ -208,7 +205,6 @@ import {
             </div>
             
             <div className="relative">
-              {/* Abstract visual representation instead of stock photo */}
               <div className="aspect-square rounded-3xl bg-secondary/30 border border-white/5 p-8 relative overflow-hidden flex items-center justify-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
                 <div className="grid grid-cols-2 gap-4 w-full h-full opacity-50">
