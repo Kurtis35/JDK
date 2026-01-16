@@ -73,28 +73,51 @@ export function Navbar() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden border-t border-white/5 bg-background">
-          <div className="container-custom py-4 flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "text-lg font-medium py-2 border-b border-white/5",
-                  location === link.href ? "text-primary" : "text-muted-foreground"
-                )}
+        <div className="md:hidden fixed inset-0 z-[100] bg-background/95 backdrop-blur-2xl animate-in fade-in slide-in-from-top-4 duration-300">
+          <div className="container-custom py-8 flex flex-col h-full">
+            <div className="flex justify-end mb-8">
+              <button
                 onClick={() => setIsOpen(false)}
+                className="p-3 text-muted-foreground hover:text-primary transition-colors bg-white/5 rounded-full"
               >
-                {link.label}
-              </Link>
-            ))}
-            <a 
-              href="tel:+27821234567" 
-              className="flex items-center justify-center gap-2 bg-primary px-4 py-3 rounded-xl text-primary-foreground font-semibold mt-4"
-            >
-              <Phone className="h-5 w-5" />
-              <span>Call Now: 082 123 4567</span>
-            </a>
+                <X className="h-8 w-8" />
+              </button>
+            </div>
+            
+            <div className="flex flex-col gap-6 items-center justify-center flex-grow">
+              {navLinks.map((link, i) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "text-3xl font-black uppercase tracking-tighter transition-all duration-300",
+                    location === link.href ? "text-primary glow-text" : "text-muted-foreground"
+                  )}
+                  onClick={() => setIsOpen(false)}
+                >
+                  <motion.span
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                  >
+                    {link.label}
+                  </motion.span>
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-auto pb-8">
+              <a 
+                href="tel:+27821234567" 
+                className="flex items-center justify-center gap-4 bg-primary p-6 rounded-2xl text-primary-foreground font-black text-xl shadow-2xl shadow-primary/40 active:scale-95 transition-transform"
+              >
+                <Phone className="h-6 w-6" />
+                <span>Call: 082 123 4567</span>
+              </a>
+              <p className="text-center text-muted-foreground mt-6 text-sm font-bold tracking-widest uppercase opacity-50">
+                Electrician to light up your world
+              </p>
+            </div>
           </div>
         </div>
       )}

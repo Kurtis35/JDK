@@ -116,7 +116,17 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
+// ... inside Home component, replacing the services grid:
+          {/* Services Desktop Grid / Mobile Slider */}
+          <div className="hidden lg:grid grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.slug}
@@ -128,6 +138,28 @@ export default function Home() {
                 <ServiceCard {...service} />
               </motion.div>
             ))}
+          </div>
+
+          <div className="lg:hidden">
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-4">
+                {services.map((service) => (
+                  <CarouselItem key={service.slug} className="pl-4 basis-[85%]">
+                    <ServiceCard {...service} className="h-full" />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div className="flex justify-center gap-4 mt-12">
+                <CarouselPrevious className="relative inset-0 translate-y-0 h-12 w-12 bg-white/5 border-white/10 text-white hover:bg-primary hover:text-primary-foreground transition-all duration-300" />
+                <CarouselNext className="relative inset-0 translate-y-0 h-12 w-12 bg-white/5 border-white/10 text-white hover:bg-primary hover:text-primary-foreground transition-all duration-300" />
+              </div>
+            </Carousel>
           </div>
         </div>
       </section>
